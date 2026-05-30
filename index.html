@@ -125,6 +125,7 @@ footer code{font-family:'JetBrains Mono';background:var(--surface);padding:1px 6
 
 <script>
 var ID="1jx8HcUYkg3yImqTDYTKwOMEO2zI-2ajGssa9OY0R-i0", GID="0";
+var PUB="https://docs.google.com/spreadsheets/d/e/2PACX-1vRYmxI1l-09sAKLDI55CsS2CZ6I6ZRIsS-ozmL629INrT6Co0ID_ii1TnX8jKYrtL5_Y4FSpltz48bu/pub?gid=0&single=true&output=csv";
 var EDIT="https://docs.google.com/spreadsheets/d/"+ID+"/edit";
 
 var DATA={months:["06/2026","07/2026","08/2026","09/2026","10/2026","11/2026"],
@@ -213,6 +214,7 @@ function setStatus(msg,kind){var el=document.getElementById('status');el.textCon
 async function fetchCSV(){
  var custom=(lsGet('csvUrl')||'').trim();var ts='&_='+Date.now();
  var urls=custom?[custom+(custom.indexOf('?')>-1?ts:'?_='+Date.now())]:[
+  PUB+ts,
   'https://docs.google.com/spreadsheets/d/'+ID+'/gviz/tq?tqx=out:csv&gid='+GID+ts,
   'https://docs.google.com/spreadsheets/d/'+ID+'/export?format=csv&gid='+GID+ts];
  var lastErr;
