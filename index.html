@@ -152,11 +152,10 @@ function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
 function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
 function lsDel(k){try{localStorage.removeItem(k);}catch(e){}}
 
-function compute(){var m=DATA.months.length,g=[],carry=[],sobra=[],prev=0;
+function compute(){var m=DATA.months.length,g=[],sobra=[];
  for(var i=0;i<m;i++){var gg=0;DATA.items.forEach(function(it){var v=it.valores[i];if(v!=null&&!isNaN(v))gg+=Number(v);});
-  var ci=i===0?0:prev;var so=Number(DATA.entrada[i]||0)+ci-gg;
-  g.push(gg);carry.push(ci);sobra.push(so);prev=so;}
- return{g:g,carry:carry,sobra:sobra};}
+  g.push(gg);sobra.push(Number(DATA.entrada[i]||0)-gg);}
+ return{g:g,carry:[],sobra:sobra};}
 
 function render(){var c=compute(),M=DATA.months;
  var totEnt=DATA.entrada.reduce(function(x,y){return x+Number(y||0);},0);
@@ -169,13 +168,13 @@ function render(){var c=compute(),M=DATA.months;
  document.getElementById('months').innerHTML=M.map(function(mo,i){
   var bar=c.sobra[i]>=0?'var(--pos)':'var(--neg)';
   var isCol=!!collapsed[mo];
-  var carryLine=c.carry[i]!==0?('<div class="line"><span class="k">Do mês anterior</span><span class="v '+(c.carry[i]>=0?'pos':'neg')+'">'+signed(c.carry[i])+'</span></div>'):'';
+  
   return '<div class="mcard'+(isCol?' collapsed':'')+'" data-mo="'+mo+'" style="--accentbar:'+bar+'">'+
    '<div class="mhead"><span class="mname">'+mo+'</span><span class="head-right">'+
      '<span class="head-sobra '+(c.sobra[i]>=0?'pos':'neg')+'">'+fmt(c.sobra[i])+'</span><span class="chev">▼</span></span></div>'+
    '<div class="mbody">'+
      '<div class="line"><span class="k">Entrada</span><span class="v">'+(DATA.entrada[i]?fmt(DATA.entrada[i]):'<span class=muted>—</span>')+'</span></div>'+
-     carryLine+
+     
      '<div class="line gastos-line"><span class="k">Gastos</span><span class="v neg">'+fmt(c.g[i])+'</span></div>'+
    '</div></div>';
  }).join('');
