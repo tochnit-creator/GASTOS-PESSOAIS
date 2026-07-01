@@ -133,15 +133,17 @@ var ID="1jx8HcUYkg3yImqTDYTKwOMEO2zI-2ajGssa9OY0R-i0", GID="0";
 var PUB="https://docs.google.com/spreadsheets/d/e/2PACX-1vRYmxI1l-09sAKLDI55CsS2CZ6I6ZRIsS-ozmL629INrT6Co0ID_ii1TnX8jKYrtL5_Y4FSpltz48bu/pub?gid=0&single=true&output=csv";
 var EDIT="https://docs.google.com/spreadsheets/d/"+ID+"/edit";
 
-var DATA={months:["06/2026","07/2026","08/2026","09/2026","10/2026","11/2026"],
- entrada:[10000,0,0,0,0,0],
+var DATA={months:["06/2026","07/2026","08/2026","09/2026","10/2026","11/2026","12/2026"],
+ entrada:[9000,9000,9000,9000,9000,9000,9000],
  items:[
-  {descricao:"pensao",situacao:"fixo",valores:[660,660,660,660,660,660],status:["pendente","pendente","pendente","pendente","pendente","pendente"]},
-  {descricao:"moto alexandre",situacao:"1/4",valores:[2000,2000,2000,2000,null,null],status:["pendente","pendente","pendente","pendente",null,null]},
-  {descricao:"aluguel abba studio",situacao:"fixo",valores:[1000,1000,1000,1000,1000,1000],status:["pendente","pendente","pendente","pendente","pendente","pendente"]},
-  {descricao:"teclado ph",situacao:"1/3",valores:[500,500,500,null,null,null],status:["pendente","pendente","pendente",null,null,null]},
-  {descricao:"academia",situacao:"fixo",valores:[99,99,99,99,99,99],status:["pendente","pendente","pendente","pendente","pendente","pendente"]},
-  {descricao:"cameras casa",situacao:"fixo",valores:[99,99,99,99,99,99],status:["pendente","pendente","pendente","pendente","pendente","pendente"]}
+  {descricao:"pensao",situacao:"fixo",valores:[660,660,660,660,660,660,660],status:["pago","pendente","pendente","pendente","pendente","pendente","pendente"]},
+  {descricao:"moto alexandre",situacao:"1/4",valores:[2000,2000,2000,2000,null,null,null],status:["pago","pendente","pendente","pendente",null,null,null]},
+  {descricao:"aluguel abba studio",situacao:"fixo",valores:[1000,1000,1000,1000,1000,1000,1000],status:["pago","pendente","pendente","pendente","pendente","pendente","pendente"]},
+  {descricao:"teclado ph",situacao:"1/3",valores:[500,500,500,null,null,null,null],status:["pago","pendente","pendente",null,null,null,null]},
+  {descricao:"alarme casa",situacao:"fixo",valores:[null,245,245,245,245,245,245],status:[null,"pendente","pendente","pendente","pendente","pendente","pendente"]},
+  {descricao:"academia",situacao:"fixo",valores:[0,99,99,99,99,99,99],status:["pago","pendente","pendente","pendente","pendente","pendente","pendente"]},
+  {descricao:"Claude",situacao:"fixo",valores:[null,799,799,799,799,799,799],status:[null,"pendente","pendente","pendente","pendente","pendente","pendente"]},
+  {descricao:"cameras casa",situacao:"fixo",valores:[0,99,99,99,99,99,99],status:["pago","pendente","pendente","pendente","pendente","pendente","pendente"]}
  ]};
 
 var collapsed={}, allHidden=false;
